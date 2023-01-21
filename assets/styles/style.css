@@ -1,0 +1,221 @@
+/* Reset Padding untuk control penuh kepada style */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* Memberikan css Navbar */
+
+header {
+    background-color: #f37b7b;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header h1 {
+    padding: 22px;
+}
+
+nav {
+    display: flex;
+    background-color: #E64848;
+    justify-content: space-around;
+    color: #e5ebeb;
+    height: 65px;
+    align-items: center;
+}
+
+nav .logo {
+    font-family: 'Pacifico';
+    /* font-family: 'Pacifico', cursive, sans-serif; */
+    letter-spacing: 3px;
+    color: rgb(235, 228, 238);
+    max-width: 675px, 768px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: rgb(235, 228, 238);
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    color: rgb(99, 230, 97);
+}
+
+
+/* Menu toggle */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(235, 228, 238);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+
+/* Animasi Menu */
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/* Breakpoint membuat menjadi Responsive */
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        width: 80%;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        justify-content: space-evenly;
+        background-color: #0081C9;
+        align-items: center;
+        flex-direction: column;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* bagian content */
+
+.content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+article img {
+    min-height: 450px;
+    width: 100%;
+    border-radius: 3px;
+    object-fit: cover;
+    object-position: center;
+}
+
+article p {
+    margin-top: 20px;
+    text-indent: 20px;
+}
+
+article h3 {
+    padding: 10px;
+}
+
+article {
+    padding: 5px;
+    box-shadow: 2px 2px black;
+    border-radius: 3px;
+}
+
+aside {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    padding: 20px;
+    color: white;
+    background-color: #E64848;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media all and (max-width: 1000px) {
+    ul {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+    }
+    ul li {
+        display: inline-block;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    aside h3,
+    table {
+        text-align: center;
+    }
+    table {
+        margin: auto;
+    }
+}
